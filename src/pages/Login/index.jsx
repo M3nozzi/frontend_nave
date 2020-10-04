@@ -1,25 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
+import { login } from '../../services/auth';
+
 import logoImg from '../../assets/logoNave.png';
+
+import api from '../../services/api';
 
 import { Form } from './styles';
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
+    const history = useHistory();
+
+    async function handleSignin(e) {
+        console.log(e)
+        e.preventDefault();
+       
+        try {
+            const response = await api.post('/users/login', { email, password });
+            login(response.data.token);
+            console.log(response)
+            history.push('/home');
+        } catch (err) {
+            console.log(err)
+        }
+    }
     return (
         <>
-            <Form>
+            <Form onSubmit={handleSignin}>
                 <div>
                     <img src={logoImg} alt='Nave Logo' />
-                    <label for="email">E-mail</label>
+                    <label>E-mail</label>
                     <input
-                        type ='text'                     
+                        type='email'
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         placeholder='E-mail'
                     />
-                    <label for="password">Senha</label>
+                    <label>Senha</label>
                      <input
-                        type ='text'                     
+                        type='password' 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         placeholder='Senha'
                     />
-                    <button type='submit'>Enviar</button>
+                    <button type='submit'>Entrar</button>
                 </div>
             </Form>
         </>

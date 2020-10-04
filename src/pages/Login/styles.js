@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
 
-export const Form = styled.div`
+export const Form = styled.form`
     margin-top: 156px;
     display:flex;
     
