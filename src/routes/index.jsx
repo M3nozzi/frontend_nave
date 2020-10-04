@@ -4,10 +4,12 @@ import { Switch, Route } from 'react-router-dom';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
 
+import ProtectedRoute from '../services/protected-routes';
+
 const Routes = () => (
     <Switch>
         <Route path='/' exact component={Login} />
-        <Route path='/home' component={Dashboard} />
+        <ProtectedRoute path='/home' component={Dashboard} />
     </Switch>
 )
 

@@ -1,8 +1,12 @@
 import React from 'react';
 // import api from '../../services/api';
 
+import Navbar from '../../components/Navbar/Navbar';
+
 const Dashboard = () => {
-    return <h1>Dashboard</h1>
+    return (
+        <Navbar/>
+    )
 };
 
 export default Dashboard;

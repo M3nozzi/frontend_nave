@@ -15,7 +15,7 @@ const Login = () => {
     const history = useHistory();
 
     async function handleSignin(e) {
-        console.log(e)
+
         e.preventDefault();
        
         try {
