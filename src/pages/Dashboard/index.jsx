@@ -3,9 +3,17 @@ import React from 'react';
 
 import Navbar from '../../components/Navbar/Navbar';
 
+import { Navers } from './styles';
+
 const Dashboard = () => {
     return (
-        <Navbar/>
+        <>
+            <Navbar />
+             <Navers>
+                <h1>Navers</h1>
+                <button type='submit'>Adicionar</button>
+            </Navers>
+        </>
     )
 };
 

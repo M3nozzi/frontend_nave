@@ -14,7 +14,7 @@ export default createGlobalStyle`
     }
 
     #root {
-        /* max-width: 960px; */
+        
         margin: 0 auto;
         padding: 24px 20px;
     }
