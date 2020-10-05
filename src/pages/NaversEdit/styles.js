@@ -4,23 +4,24 @@ import { shade } from 'polished';
 
 export const Content = styled.div`
 
-max-width: 730px;
-align-items:center;
-margin-right: auto;
-margin-left:auto;
+    max-width: 730px;
+    align-items:center;
+    margin-right: auto;
+    margin-left:auto;
 `;
+
 export const Head = styled.div`
 
-display:flex;
-max-width: 730px;
-align-items:center;
-margin-top:5%;
-margin-bottom:40px;
-margin-left:auto;
-margin-right: auto;
+    display:flex;
+    max-width: 730px;
+    align-items:center;
+    margin-top:5%;
+    margin-bottom:40px;
+    margin-left:auto;
+    margin-right: auto;
 
 
-a{
+    a{
         
         text-decoration: none;
         color: #212121;
@@ -78,8 +79,6 @@ export const FormNavers = styled.form`
         height: 40px;
         width: 280px;
                
-        font-family: Montserrat;
-        font-style: normal;
         font-weight: normal;
         font-size: 16px;
         line-height: 24px;
@@ -97,10 +96,6 @@ export const FormNavers = styled.form`
         width: 176px;
         height:40px;
         background:#212121;
-        left: 0%;
-        right: 0%;
-        top: 0%;
-        bottom: 0%;
         color: #FFF;
         transition: background-color 0.2s;
         margin: 0px 32px 32px 135px;
@@ -113,5 +108,6 @@ export const FormNavers = styled.form`
 
 export const Group = styled.div`
 
-width:100%;
+    width:100%;
+    
 `;
