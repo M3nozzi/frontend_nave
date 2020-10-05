@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const Nav = styled.header`
     width: 100%;
@@ -21,6 +22,10 @@ export const Nav = styled.header`
         font-weight: 600;
         font-size: 1.4rem;
         margin-right: 32px;
+
+        &:hover{
+            color:${shade(0.5, '#9E9E9E')}
+        }
     }
 
 `;
