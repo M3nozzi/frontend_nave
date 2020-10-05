@@ -6,7 +6,7 @@ import Navbar from '../../components/Navbar/Navbar';
 
 import { FormNavers, Head, Group, Content } from './styles';
 
-const NaversAdd = () => {
+const NaversEdit = () => {
     
     return (
         <>
@@ -16,7 +16,7 @@ const NaversAdd = () => {
                     <Link to='/home'>
                         <FiChevronLeft size={32} />
                     </Link>
-                    <h1>Adicionar Naver</h1> 
+                    <h1>Editar Naver</h1> 
                 </Head>
                 <FormNavers onSubmit={console.log('enviado')}>
                     <Group>
@@ -65,4 +65,4 @@ const NaversAdd = () => {
     )
 };
 
-export default NaversAdd;
+export default NaversEdit;
