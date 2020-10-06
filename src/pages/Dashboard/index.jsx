@@ -5,16 +5,30 @@ import api from '../../services/api';
 import { Link } from 'react-router-dom';
 
 import Navbar from '../../components/Navbar/Navbar';
+import Modal from '../../components/Modal/Modal';
 
 import { Container, Navers, List, Group } from './styles';
 
 const Dashboard = () => {
-
+    
     const [navers, setNavers] = useState([])
+    const [idModal, setIdModal] = useState('');
+    const [modalVisible, setModalVisible] = useState(false);
+    const [load, setLoad] = useState(false);
+    
+    const handleModalVisible = (id) => {
+
+        setIdModal(id)
+        setModalVisible(true)
+    };
+    
+    const closeModal = () => {
+        setModalVisible(false);
+    }
  
     const [id, setID] = useState('')
 
-    const [load, setLoad] = useState(false);
+    
     const [error, setError] = useState('');
 
     useEffect(() => {
@@ -38,6 +52,15 @@ const Dashboard = () => {
     
     }, [id]);
     
+    async function deleteNavers(id) {
+        try {
+            await api.delete(`navers/${id}`);
+            setNavers(navers.filter((navers) => navers.id !== id));
+            closeModal();
+        } catch {
+            alert("erro ao deletar")
+        }
+    }
 
     return (
         <>
@@ -56,7 +79,7 @@ const Dashboard = () => {
                                 <img width="281" height="281" src={navers.url} alt={navers.name}/>
                                 <strong>{navers.name}</strong>
                                 <p>{navers.job_role}</p>
-                                <FaTrash size={20}/>
+                               <button onClick={()=> handleModalVisible(navers.id)}><FaTrash size={20} /></button> 
                                 <Link key={navers.id} to={`/update/${navers.id}`}><FaPen size={20}/></Link>
                             </div>
                         </Navers>
@@ -69,6 +92,15 @@ const Dashboard = () => {
                     </Group>
                 )
             }
+            <Modal
+                visible={modalVisible}
+                setVisible={setModalVisible}
+                buttons={true}
+                deleteNavers={deleteNavers}
+                id={idModal}
+            >
+                Excluir naver, Tem certeza que deseja excluir este Naver?
+            </Modal>
         </>
     )
 };

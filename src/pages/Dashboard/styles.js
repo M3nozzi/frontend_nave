@@ -82,6 +82,11 @@ export const Navers = styled.div`
        margin-right:16px;
     }
 
+    button {
+      background-color:transparent;
+      border:none;
+    }
+
 `;
 
 export const List = styled.ul`

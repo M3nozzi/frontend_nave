@@ -1,11 +1,23 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
+export const ModalBtn = styled.button`
+         width: 176px;
+        height:40px;
+        background:#212121;
+        color: #FFF;
+        transition: background-color 0.2s;
+        margin: 0px 32px 32px 135px;
+        &:hover{
+            background:${shade(0.5, '#9E9E9E')}
+        }
+`;
 
 export const Mod = styled.div`
     position: fixed; 
     background: white; 
     width: 592px; 
-    height: 160px; 
+    height: ${(props) => (props.button === true ? "233px" : "160px")}; 
     top: 50%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
