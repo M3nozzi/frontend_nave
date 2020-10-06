@@ -13,7 +13,7 @@ const Routes = () => (
         <Route path='/' exact component={Login} />
         <ProtectedRoute path='/home' component={Dashboard} />
         <ProtectedRoute path='/create' component={NaversAdd} />
-        <ProtectedRoute path='/update' component={NaversEdit} />
+        <ProtectedRoute path='/update/:id' component={NaversEdit} />
     </Switch>
 )
 

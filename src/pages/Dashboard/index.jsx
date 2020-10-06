@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { VscLoading } from 'react-icons/vsc'
 import { FaPen, FaTrash }  from 'react-icons/fa';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 
 import Navbar from '../../components/Navbar/Navbar';
 
-import { Navers } from './styles';
+import { Container, Navers } from './styles';
 
 const Dashboard = () => {
 
@@ -37,30 +38,36 @@ const Dashboard = () => {
     
     }, [id]);
 
+
+    
+
     return (
         <>
             <Navbar />
-             <Navers>
+             <Container>
                 <h1>Navers</h1>
                 <Link  to='/create'>
                     <button type='submit'>Adicionar</button>
                 </Link>
-            </Navers>
+            </Container>
             {load ? (<ul>
                 {error ? <li>{error.message}</li> : navers.map(navers => {
                     return (
-                        <div key={navers.id}>
-                            <img width="281" height="281" src={navers.url} alt=''/>
-                            <p>{navers.name}</p> <p>{navers.job_role}</p>
-                            <FaTrash size={18}/>
-                            <Link key={navers.id} to={`/update/${navers.id}`}><FaPen size={18}/></Link>
-                        </div>
+                        <Navers key={navers.id} >
+                            <div key={navers.id}>
+                                <img width="281" height="281" src={navers.url} alt={navers.name}/>
+                                <strong>{navers.name}</strong>
+                                <p>{navers.job_role}</p>
+                                <FaTrash size={18}/>
+                                <Link key={navers.id} to={`/update/${navers.id}`}><FaPen size={18}/></Link>
+                            </div>
+                        </Navers>
                     )
                 })
                 }
             </ul>) : (
                     <div>
-                        Loading...
+                        <VscLoading size={30}/>
                     </div>
                 )
             }
