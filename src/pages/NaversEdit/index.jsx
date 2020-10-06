@@ -109,6 +109,7 @@ const NaversEdit = ({ match }) => {
                             onChange={(e) => setProject(e.target.value)}
                             required
                         />  
+                        {inputError && <Error>{inputError}</Error> }
                     </Group>
                     <Group>
                         <label>Cargo</label>
@@ -146,7 +147,6 @@ const NaversEdit = ({ match }) => {
                         </button>
                     </Group>
                 </FormNavers>
-                {inputError && <Error>{inputError}</Error> }
             </Content>
             <Modal visible={modalVisible} setVisible={setModalVisible} history = {history}>
                 Naver criado,Naver criado com sucesso!

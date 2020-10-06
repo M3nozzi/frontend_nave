@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
 
@@ -87,6 +87,10 @@ export const FormNavers = styled.form`
         border: 1px solid #424242;
         box-sizing: border-box;
 
+        ${(props) => props.hasError && css`
+            border-color: #C53030;
+        `};
+
         &::placeholder{
             color: #9E9E9E;
         }
@@ -116,4 +120,5 @@ export const Error = styled.span`
     display:block;
     color: #C53030;
     margin-top:8px;
+    margin-left:27px;
 `;
