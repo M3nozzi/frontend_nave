@@ -44,6 +44,7 @@ export const Container = styled.section`
 
 export const Navers = styled.div`
   display:inline-block;
+  margin: 0 5px;
   left: 32px;
   top: 193px;
   border-radius: 0px;
@@ -52,7 +53,11 @@ export const Navers = styled.div`
       margin: 32px 32px;
       height: 420px;
       width: 281px;
-      clear: both;
+      transition: transform 0.2s;
+
+      &:hover{
+            transform: translateX(10px);   
+        }
     }
 
 
@@ -75,7 +80,10 @@ export const Navers = styled.div`
        margin-top: 13px;
        margin-left:0px;
        margin-right:16px;
-
     }
 
+`;
+
+export const List = styled.ul`
+  text-align: center
 `;

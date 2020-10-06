@@ -4,10 +4,11 @@ import { useHistory } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi';
 
 import Navbar from '../../components/Navbar/Navbar';
+import Modal from '../../components/Modal/Modal';
 
 import api from '../../services/api';
 
-import { FormNavers, Head, Group, Content } from './styles';
+import { FormNavers, Head, Group, Content, Error } from './styles';
 
 const NaversEdit = ({ match }) => {
     const history = useHistory();
@@ -15,17 +16,17 @@ const NaversEdit = ({ match }) => {
     const handleModalVisible = () => { setModalVisible(true); history.push('/home') };
 
     const [ loading, setLoading ] = useState(false)
-    const [ error, setError ] = useState(false)
+    const [ inputError, setInputError ] = useState(false)
     
     const [ name, setName ] = useState('')
-    const [ job_role, setJob ] = useState('')
-    const [ admission_date, setAdmission ] = useState('')
+    const [ job_role, setJob_rol ] = useState('')
+    const [ admission_date, setAdmission_date ] = useState('')
     const [ birthdate, setBirthdate ] = useState('')
     const [ project, setProject ] = useState('')
     const [ url, setUrl ] = useState('')
 
     useEffect(() => {
-        setError(false)
+        setInputError(false)
     }, [name, job_role, admission_date, birthdate, project, url])
 
     useEffect(() => {
@@ -34,8 +35,8 @@ const NaversEdit = ({ match }) => {
             let dateAdmission = response.data.admission_date.split('T');
             let dateBirthday = response.data.birthdate.split('T');
             setName(response.data.name)
-            setJob(response.data.job_role)
-            setAdmission(dateAdmission[0])
+            setJob_rol(response.data.job_role)
+            setAdmission_date(dateAdmission[0])
             setBirthdate(dateBirthday[0])
             setProject(response.data.project)
             setUrl(response.data.url)
@@ -51,8 +52,6 @@ const NaversEdit = ({ match }) => {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        setLoading(true)
-
         const naver = {
             job_role,
             admission_date: reverseDate(admission_date),
@@ -66,9 +65,9 @@ const NaversEdit = ({ match }) => {
             await api.put(`navers/${match.params.id}`, naver)
             handleModalVisible();
             history.push('/home');
-        } catch(e){
+        } catch(err){
             setLoading(false)
-            setError(true)
+            setInputError('erro no preenchimento dos campos')
         }
     };
 
@@ -82,7 +81,7 @@ const NaversEdit = ({ match }) => {
                     </Link>
                     <h1>Editar Naver</h1> 
                 </Head>
-                <FormNavers onSubmit={handleSubmit}>
+                <FormNavers hasError={!!inputError} onSubmit={handleSubmit}>
                     <Group>
                         <label>Nome</label>
                         <input
@@ -90,6 +89,7 @@ const NaversEdit = ({ match }) => {
                             value={name}
                             placeholder='Nome'
                             onChange={(e) => setName(e.target.value)}
+                            required
                         />
                         
                         <label>Idade</label>
@@ -98,6 +98,7 @@ const NaversEdit = ({ match }) => {
                             value={birthdate}
                             placeholder='Idade'
                             onChange={(e) => setBirthdate(e.target.value)}
+                            required
                         />
 
                         <label>Projetos que participou</label>
@@ -106,6 +107,7 @@ const NaversEdit = ({ match }) => {
                             value={project}
                             placeholder='Projetos que participou'
                             onChange={(e) => setProject(e.target.value)}
+                            required
                         />  
                     </Group>
                     <Group>
@@ -114,7 +116,8 @@ const NaversEdit = ({ match }) => {
                             type='text'
                             value={job_role}
                             placeholder='Cargo'
-                            onChange={(e) => setJob(e.target.value)}
+                            onChange={(e) => setJob_rol(e.target.value)}
+                            required
                         />
                         
                         <label>Tempo de Empresa</label>
@@ -122,7 +125,8 @@ const NaversEdit = ({ match }) => {
                             type='date'
                             value={admission_date}
                             placeholder='Tempo de empresa'
-                            onChange={(e) => setAdmission(e.target.value)}
+                            onChange={(e) => setAdmission_date(e.target.value)}
+                            required
                         />
                     
                         <label>URL da foto do Naver</label>
@@ -131,6 +135,7 @@ const NaversEdit = ({ match }) => {
                             value={url}
                             placeholder='URL da foto do Naver'
                             onChange={(e) => setUrl(e.target.value)}
+                            required
                         />
                   
                         <button type='submit'>
@@ -141,7 +146,11 @@ const NaversEdit = ({ match }) => {
                         </button>
                     </Group>
                 </FormNavers>
+                {inputError && <Error>{inputError}</Error> }
             </Content>
+            <Modal visible={modalVisible} setVisible={setModalVisible} history = {history}>
+                Naver criado,Naver criado com sucesso!
+            </Modal>
         </>
     )
 };

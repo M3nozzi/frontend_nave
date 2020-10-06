@@ -9,7 +9,7 @@ import Navbar from '../../components/Navbar/Navbar';
 
 import Modal from '../../components/Modal/Modal';
 
-import { FormNavers, Head, Group, Content } from './styles';
+import { FormNavers, Head, Group, Content, Error } from './styles';
 
 const NaversAdd = () => {
     const history = useHistory()
@@ -17,7 +17,7 @@ const NaversAdd = () => {
     const handleModalVisible = () => { setModalVisible(true); history.push('/home') };
 
     const [ loading, setLoading ] = useState(false)
-    const [ error, setError ] = useState(false)
+    const [ inputError, setInputError ] = useState(false)
       
     const [ name, setName ] = useState('')
     const [ job_role, setJob_role ] = useState('')
@@ -29,7 +29,7 @@ const NaversAdd = () => {
     
 
     useEffect( () => {
-        setError(false)
+        setInputError(false)
     }, [name, job_role, admission_date, birthdate, project, url])
 
     const reverseDate = date => {
@@ -39,7 +39,7 @@ const NaversAdd = () => {
 
     const handleSubmit = async e => {
         e.preventDefault()
-        setLoading(true)
+       
 
         const naver = {
             job_role,
@@ -56,7 +56,7 @@ const NaversAdd = () => {
 
         } catch(e){
             setLoading(false)
-            setError(true)
+            setInputError('erro no preenchimento dos campos')
         }
     }
 
@@ -137,9 +137,8 @@ const NaversAdd = () => {
                         </button>
                     </Group>
                 </FormNavers>
-                    { error && <p> Campos com erros, verificar</p> }
+                {inputError && <Error>{inputError}</Error> }
             </Content>
-            {/* <button onClick={handleModalVisible}>Abrir Modal</button> */}
             <Modal visible={modalVisible} setVisible={setModalVisible} history = {history}>
                 Naver criado,Naver criado com sucesso!
             </Modal>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import Navbar from '../../components/Navbar/Navbar';
 
-import { Container, Navers } from './styles';
+import { Container, Navers, List } from './styles';
 
 const Dashboard = () => {
 
@@ -50,7 +50,7 @@ const Dashboard = () => {
                     <button type='submit'>Adicionar</button>
                 </Link>
             </Container>
-            {load ? (<ul>
+            {load ? (<List>
                 {error ? <li>{error.message}</li> : navers.map(navers => {
                     return (
                         <Navers key={navers.id} >
@@ -65,7 +65,7 @@ const Dashboard = () => {
                     )
                 })
                 }
-            </ul>) : (
+            </List>) : (
                     <div>
                         <VscLoading size={30}/>
                     </div>

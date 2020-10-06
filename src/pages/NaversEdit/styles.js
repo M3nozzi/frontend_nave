@@ -111,3 +111,9 @@ export const Group = styled.div`
     width:100%;
     
 `;
+
+export const Error = styled.span`
+    display:block;
+    color: #C53030;
+    margin-top:8px;
+`;
