@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import Navbar from '../../components/Navbar/Navbar';
 
-import { Container, Navers, List } from './styles';
+import { Container, Navers, List, Group } from './styles';
 
 const Dashboard = () => {
 
@@ -37,8 +37,6 @@ const Dashboard = () => {
         } 
     
     }, [id]);
-
-
     
 
     return (
@@ -58,17 +56,17 @@ const Dashboard = () => {
                                 <img width="281" height="281" src={navers.url} alt={navers.name}/>
                                 <strong>{navers.name}</strong>
                                 <p>{navers.job_role}</p>
-                                <FaTrash size={18}/>
-                                <Link key={navers.id} to={`/update/${navers.id}`}><FaPen size={18}/></Link>
+                                <FaTrash size={20}/>
+                                <Link key={navers.id} to={`/update/${navers.id}`}><FaPen size={20}/></Link>
                             </div>
                         </Navers>
                     )
                 })
                 }
             </List>) : (
-                    <div>
-                        <VscLoading size={30}/>
-                    </div>
+                    <Group>
+                        <VscLoading size={90}/>
+                    </Group>
                 )
             }
         </>
