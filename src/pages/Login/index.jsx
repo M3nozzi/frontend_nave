@@ -21,7 +21,7 @@ const Login = () => {
         try {
             const response = await api.post('/users/login', { email, password });
             login(response.data.token);
-            console.log(response)
+    
             history.push('/home');
         } catch (err) {
             console.log(err)

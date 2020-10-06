@@ -12,8 +12,8 @@ const Routes = () => (
     <Switch>
         <Route path='/' exact component={Login} />
         <ProtectedRoute path='/home' component={Dashboard} />
-        <ProtectedRoute path='/naversadd' component={NaversAdd} />
-        <ProtectedRoute path='/naversedit' component={NaversEdit} />
+        <ProtectedRoute path='/create' component={NaversAdd} />
+        <ProtectedRoute path='/update' component={NaversEdit} />
     </Switch>
 )
 
