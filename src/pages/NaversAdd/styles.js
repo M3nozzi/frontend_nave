@@ -101,7 +101,7 @@ export const FormNavers = styled.form`
         transition: background-color 0.2s;
         margin: 0px 32px 32px 135px;
         &:hover{
-            background:${shade(0.5, '#9E9E9E')}
+            background:${shade(0.3, '#9E9E9E')}
         }
 
     }
@@ -110,5 +110,5 @@ export const FormNavers = styled.form`
 export const Group = styled.div`
 
     width:100%;
-    
+
 `;

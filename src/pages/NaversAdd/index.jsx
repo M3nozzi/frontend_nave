@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {  Link } from 'react-router-dom';
 import { FiChevronLeft } from 'react-icons/fi';
 
 import Navbar from '../../components/Navbar/Navbar';
 
+import Modal from '../../components/Modal/Modal';
+
 import { FormNavers, Head, Group, Content } from './styles';
 
 const NaversAdd = () => {
-    
+    const [modalVisible, setModalVisible] = useState(false);
+    const handleModalVisible = () => { setModalVisible(true); };
     return (
         <>
             <Navbar />
@@ -61,6 +64,10 @@ const NaversAdd = () => {
                     </Group>
                 </FormNavers>
             </Content>
+            <button onClick={handleModalVisible}>Abrir Modal</button>
+            <Modal visible={modalVisible} setVisible={setModalVisible}>
+                Naver criado,Naver criado com sucesso!
+            </Modal>
         </>
     )
 };
