@@ -1,35 +1,45 @@
 import React, { useState, useEffect } from 'react';
-import { VscLoading } from 'react-icons/vsc'
+import SyncLoader from 'react-spinners/SyncLoader';
 import { FaPen, FaTrash }  from 'react-icons/fa';
 import api from '../../services/api';
 import { Link } from 'react-router-dom';
 
 import Navbar from '../../components/Navbar/Navbar';
 import Modal from '../../components/Modal/Modal';
+import ModalCard from '../../components/Modal/ModalCard';
 
 import { Container, Navers, List, Group } from './styles';
 
 const Dashboard = () => {
     
     const [navers, setNavers] = useState([])
+    const [id, setID] = useState('')
+    const [load, setLoad] = useState(false);
+    const [error, setError] = useState('');
+
     const [idModal, setIdModal] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
-    const [load, setLoad] = useState(false);
-    
+
+    const [newModalVisible, setNewModalVisible] = useState(false);
+    const [idNewModal, setIdNewModal] = useState('');
+
     const handleModalVisible = (id) => {
 
         setIdModal(id)
         setModalVisible(true)
     };
     
+
+    const handleNewModalVisible = (id) => {
+
+        setIdNewModal(id)
+        setNewModalVisible(true)
+    };
+
     const closeModal = () => {
         setModalVisible(false);
     }
- 
-    const [id, setID] = useState('')
-
     
-    const [error, setError] = useState('');
 
     useEffect(() => {
         let isMounted = true;
@@ -76,8 +86,8 @@ const Dashboard = () => {
                     return (
                         <Navers key={navers.id} >
                             <div key={navers.id}>
-                                <img width="281" height="281" src={navers.url} alt={navers.name}/>
-                                <strong>{navers.name}</strong>
+                                <button onClick={() => handleNewModalVisible(navers.id)}><img width="281" height="281" src={navers.url} alt={navers.name} /></button>
+                                <h4>{navers.name}</h4>
                                 <p>{navers.job_role}</p>
                                <button onClick={()=> handleModalVisible(navers.id)}><FaTrash size={20} /></button> 
                                 <Link key={navers.id} to={`/update/${navers.id}`}><FaPen size={20}/></Link>
@@ -88,7 +98,7 @@ const Dashboard = () => {
                 }
             </List>) : (
                     <Group>
-                        <VscLoading size={90}/>
+                        <SyncLoader size={15} margin={2}/>
                     </Group>
                 )
             }
@@ -101,6 +111,16 @@ const Dashboard = () => {
             >
                 Excluir naver, Tem certeza que deseja excluir este Naver?
             </Modal>
+
+            { newModalVisible && (
+                 <ModalCard
+                 visible={newModalVisible}
+                 setVisible={setNewModalVisible}
+                 deleteNavers={deleteNavers}
+                 id={idNewModal}
+                />
+            )}
+           
         </>
     )
 };

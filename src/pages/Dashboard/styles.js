@@ -13,14 +13,18 @@ export const Container = styled.section`
     font-size: 40px;
     line-height: 48px;
     font-weight: 600;
-    margin-left: 32px;
+    margin-left: 6%;
+  }
+
+  a{
+    margin-right: 4%;
   }
 
   @media (max-width: 370px) {
      h1 {
       display: none;
     }
-      button {
+      a {
       margin: auto;
     }
   }
@@ -41,6 +45,9 @@ export const Container = styled.section`
 
 `;
 
+export const Text = styled.span`
+text-align: left;
+`;
 
 export const Navers = styled.div`
   display:inline-block;
@@ -67,11 +74,17 @@ export const Navers = styled.div`
       margin-bottom:16px;
     }
 
+
+    h4{
+      font-weight:bold;
+      text-align: left;
+    }
     p{
       size: 16px;
       margin-left:0px;
       margin-top:8px;
       margin-bottom:4px;
+      text-align: left;
     }
 
     svg{
@@ -80,28 +93,39 @@ export const Navers = styled.div`
        margin-top: 13px;
        margin-left:0px;
        margin-right:16px;
+       -moz-transition: all 0.3s;
+	     -webkit-transition: all 0.3s;
+	     transition: all 0.3s;
+
+       &:hover{
+                -moz-transform: scale(1.8);
+	            -webkit-transform: scale(1.8);
+	            transform: scale(1.8);
+            
+       }
     }
 
     button {
       background-color:transparent;
       border:none;
+      display:block;
+      align-items:left;
+      margin-right:0;
+      padding:0px 0px;
     }
+
+  
+
+   
+`;
+
+export const Group = styled.span`
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
 
 `;
 
 export const List = styled.ul`
   text-align: center
-`;
-
-
-export const Group = styled.div`
-display:flex;
-flex-direction: center;
-margin: 0 5px;
-
-  svg{
-    flex:1;
-    align-items:center; 
-  }
-
 `;

@@ -13,7 +13,7 @@ import { FormNavers, Head, Group, Content, Error } from './styles';
 const NaversEdit = ({ match }) => {
     const history = useHistory();
     const [modalVisible, setModalVisible] = useState(false);
-    const handleModalVisible = () => { setModalVisible(true); history.push('/home') };
+    const handleModalVisible = () => { setModalVisible(true)};
 
     const [ loading, setLoading ] = useState(false)
     const [ inputError, setInputError ] = useState(false)
@@ -64,10 +64,10 @@ const NaversEdit = ({ match }) => {
         try {
             await api.put(`navers/${match.params.id}`, naver)
             handleModalVisible();
-            history.push('/home');
+            setTimeout(() => history.push('/home'), 3000);
         } catch(err){
             setLoading(false)
-            setInputError('erro no preenchimento dos campos')
+            setInputError('erro no preenchimento dos campos: mínimo de 3 caracteres')
         }
     };
 
@@ -92,7 +92,7 @@ const NaversEdit = ({ match }) => {
                             required
                         />
                         
-                        <label>Idade</label>
+                        <label>Data de nascimento</label>
                         <input
                             type='date'
                             value={birthdate}
@@ -121,7 +121,7 @@ const NaversEdit = ({ match }) => {
                             required
                         />
                         
-                        <label>Tempo de Empresa</label>
+                        <label>Data que iniciou na empresa</label>
                         <input
                             type='date'
                             value={admission_date}
@@ -149,7 +149,7 @@ const NaversEdit = ({ match }) => {
                 </FormNavers>
             </Content>
             <Modal visible={modalVisible} setVisible={setModalVisible} history = {history}>
-                Naver criado,Naver criado com sucesso!
+                Naver Atualizado,Naver atualizado com sucesso!
             </Modal>
         </>
     )

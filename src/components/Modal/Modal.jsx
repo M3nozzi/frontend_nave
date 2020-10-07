@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FiX } from 'react-icons/fi';
 
-import { Container, Mod, ModalText, ModalSubText, ModalBtn } from './styles';
+import { Container, Mod, ModalText, ModalSubText, ModalBtn, ModalBtn2  } from './styles';
 
 
 const Modal = (props) => {
@@ -26,7 +26,7 @@ const Modal = (props) => {
                             </ModalSubText>
                             {props.buttons && (
                                 <div>
-                                    <ModalBtn onClick={handleModalWrapper}> Cancelar</ModalBtn>
+                                    <ModalBtn2 onClick={handleModalWrapper}> Cancelar</ModalBtn2>
                                     <ModalBtn onClick={()=> props.deleteNavers(props.id)}> Excluir</ModalBtn>
                                 </div>
                             )}

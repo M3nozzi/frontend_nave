@@ -2,16 +2,17 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const Nav = styled.header`
-    width: 100%;
+    width: 90%;
     height: 85px;
-    margin:0px;
+    
+    margin-left:4%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
 
     img {
-        height: 37px;
+        height: 43px;
         margin-left: 32px;
     }
 

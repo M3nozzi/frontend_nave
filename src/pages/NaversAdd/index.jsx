@@ -14,7 +14,7 @@ import { FormNavers, Head, Group, Content, Error } from './styles';
 const NaversAdd = () => {
     const history = useHistory()
     const [modalVisible, setModalVisible] = useState(false);
-    const handleModalVisible = () => { setModalVisible(true); history.push('/home') };
+    const handleModalVisible = () => { setModalVisible(true)};
 
     const [ loading, setLoading ] = useState(false)
     const [ inputError, setInputError ] = useState(false)
@@ -39,8 +39,7 @@ const NaversAdd = () => {
 
     const handleSubmit = async e => {
         e.preventDefault()
-       
-
+    
         const naver = {
             job_role,
             admission_date: reverseDate(admission_date),
@@ -52,11 +51,11 @@ const NaversAdd = () => {
 
         try {
             await api.post('navers', naver)
-            handleModalVisible()
-
+            handleModalVisible();
+            setTimeout(() => history.push('/home'), 3000);
         } catch(e){
             setLoading(false)
-            setInputError('erro no preenchimento dos campos')
+            setInputError('erro no preenchimento dos campos: mínimo de 3 caracteres')
         }
     }
 
@@ -83,7 +82,7 @@ const NaversAdd = () => {
                             required
                         />
                         
-                        <label>Idade</label>
+                        <label>Data de nascimento</label>
                         <input
                             type='date'
                             value={birthdate}
@@ -112,7 +111,7 @@ const NaversAdd = () => {
                             required
                         />
                         
-                        <label>Tempo de Empresa</label>
+                        <label>Data que iniciou na empresa</label>
                         <input
                             type='date'
                             value={admission_date}
