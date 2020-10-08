@@ -46,6 +46,11 @@ Para fazer o login, utilize os dados abaixo:
 login: menozzi@nave.rs
 senha: 6789123
 ```
+Exemplo do arquivo .env utilizado no projeto:
+```
+REACT_APP_KEY=token
+```
+
 ## Dificuldades durante a execução do projeto
 
 Funcionalidade adequada do modal ao chamar outro modal para os casos de reuso, porém este desafio foi superado no decorrer do desenvolvimento do projeto.
