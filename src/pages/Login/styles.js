@@ -4,7 +4,6 @@ import { shade } from 'polished';
 export const Form = styled.form`
     margin-top: 156px;
     display:flex;
-    
     height: 408px;
     width: 448px;
     margin-left:auto;
@@ -78,4 +77,5 @@ export const Form = styled.form`
         }
 
     }
+
 `;

@@ -6,6 +6,11 @@ export const BtnContent = styled.div`
     flex-direction:row;
     align-items: flex-end;
     height:220px;
+
+    button{
+        background-color:transparent;
+        border:none;
+    }
 `;
 
 export const CardImage = styled.div`
@@ -31,7 +36,6 @@ export const CardText = styled.div`
    
    display:flex;
    flex-direction:column;
-    /* float:right; */
     width:50%;
     height: 503px;
     padding-left: 4%;

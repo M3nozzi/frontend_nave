@@ -65,7 +65,7 @@ const Dashboard = () => {
             isMounted = false;
         } 
     
-    }, [id]);
+    }, []);
     
     async function deleteNavers(id) {
         try {

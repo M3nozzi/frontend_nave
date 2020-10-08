@@ -8,7 +8,7 @@ export const Mod = styled.div`
     height:233px;
     top: 50%; 
     left: 50%; 
-    z-index:1;
+    
     transform: translate(-50%, -50%); 
         div.ModalText {
              margin: 0 auto; 
@@ -84,6 +84,7 @@ export const ModalText = styled.p`
 
 export const Container = styled.div`
     position: fixed;
+    z-index:1;
     top:0;
     left: 0;
     width: 100%;
