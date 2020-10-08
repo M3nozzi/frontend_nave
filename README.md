@@ -54,6 +54,6 @@ Funcionalidade adequada do modal ao chamar outro modal para os casos de reuso, p
 
 Agradeço a Nave.rs pela oportunidade em poder participar deste desafio, ao qual pude desenvolver melhor as minhas habilidades, resolvendo com êxito o desafio proposto.
 
-##Autor
+## Autor
 
 Desenvolvido por [**Fabio Menozzi**](https://www.linkedin.com/in/menozzi-fabio/)
