@@ -1,21 +1,39 @@
 import styled from 'styled-components';
 
 
+export const BtnContent = styled.div`
+    display:flex;
+    flex-direction:row;
+    align-items: flex-end;
+    height:220px;
+`;
+
 export const CardImage = styled.div`
-  background-position: center;
+ 
   float:left;
-  width: 50%;
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;  
+  width: auto;
+  height: 503px;
+  min-width:250px;
+  box-sizing: border-box;
   border: 0;
+
+    img{
+        width:25vw;
+        min-width:250px;
+        height:503px;
+        object-fit:cover;
+
+    }
+
 `;
 
 export const CardText = styled.div`
-    /* border: 2px solid #C53030; */
-    float:right;
+   
+   display:flex;
+   flex-direction:column;
+    /* float:right; */
     width:50%;
-    height: 100%;
+    height: 503px;
     padding-left: 4%;
     padding-top:5%;
     color:#212121;
@@ -41,15 +59,16 @@ export const CardText = styled.div`
 
     }
 
-   
+       
 `;
 
 export const Card = styled.div`
 
     position:fixed;
-    /* border: 2px solid #C53030; */
-    width: 1006px;
-    height: 503px;
+   
+    width:  50vw;
+    height: auto;
+    min-width: 500px;
     top: 50%; 
     left: 50%; 
     background: #FFFFFF;

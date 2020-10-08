@@ -56,6 +56,7 @@ export const FormNavers = styled.form`
     border-radius: 0px;
     box-sizing: border-box;   
 
+
     label{     
         width: auto;
         height: 18px;
@@ -105,6 +106,11 @@ export const FormNavers = styled.form`
         }
 
     }
+
+    @media only screen and (max-width: 500px ){
+        flex-direction:column;
+    }
+
 `;
 
 export const Group = styled.div`

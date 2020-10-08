@@ -17,7 +17,7 @@ const Modal = (props) => {
                 {props.visible && (
                     <Container>
                         <Mod buttons={props.buttons}>
-                            <div>
+                            <div className='ModalText'>
                                 <ModalText>{fix[0]}</ModalText>
                                 <FiX size={20} onClick={handleModalWrapper}/>
                             </div>
@@ -25,7 +25,7 @@ const Modal = (props) => {
                                 {fix[1]}
                             </ModalSubText>
                             {props.buttons && (
-                                <div>
+                                <div className='MBtn'>
                                     <ModalBtn2 onClick={handleModalWrapper}> Cancelar</ModalBtn2>
                                     <ModalBtn onClick={()=> props.deleteNavers(props.id)}> Excluir</ModalBtn>
                                 </div>

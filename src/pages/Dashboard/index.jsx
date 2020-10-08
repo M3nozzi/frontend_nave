@@ -8,7 +8,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Modal from '../../components/Modal/Modal';
 import ModalCard from '../../components/Modal/ModalCard';
 
-import { Container, Navers, List, Group } from './styles';
+import { Container, Navers, List, Group, BtnContent } from './styles';
 
 const Dashboard = () => {
     
@@ -23,6 +23,12 @@ const Dashboard = () => {
     const [newModalVisible, setNewModalVisible] = useState(false);
     const [idNewModal, setIdNewModal] = useState('');
 
+    const [modalDelete, setModalDelete] = useState(false);
+
+    const handleModalDelete = () => {
+        setModalDelete(true);
+    }
+
     const handleModalVisible = (id) => {
 
         setIdModal(id)
@@ -31,8 +37,7 @@ const Dashboard = () => {
     
 
     const handleNewModalVisible = (id) => {
-
-        setIdNewModal(id)
+        setIdNewModal(id) 
         setNewModalVisible(true)
     };
 
@@ -67,6 +72,8 @@ const Dashboard = () => {
             await api.delete(`navers/${id}`);
             setNavers(navers.filter((navers) => navers.id !== id));
             closeModal();
+            handleModalDelete();
+            setTimeout(() => window.location.reload(), 1500);
         } catch {
             alert("erro ao deletar")
         }
@@ -85,12 +92,14 @@ const Dashboard = () => {
                 {error ? <li>{error.message}</li> : navers.map(navers => {
                     return (
                         <Navers key={navers.id} >
-                            <div key={navers.id}>
+                            <div className='CardContent' key={navers.id}>
                                 <button onClick={() => handleNewModalVisible(navers.id)}><img width="281" height="281" src={navers.url} alt={navers.name} /></button>
                                 <h4>{navers.name}</h4>
                                 <p>{navers.job_role}</p>
-                               <button onClick={()=> handleModalVisible(navers.id)}><FaTrash size={20} /></button> 
-                                <Link key={navers.id} to={`/update/${navers.id}`}><FaPen size={20}/></Link>
+                                <BtnContent>
+                                    <button onClick={()=> handleModalVisible(navers.id)}><FaTrash size={20} /></button> 
+                                    <Link key={navers.id} to={`/update/${navers.id}`}><FaPen size={20} /></Link>
+                                </BtnContent>
                             </div>
                         </Navers>
                     )
@@ -112,12 +121,21 @@ const Dashboard = () => {
                 Excluir naver, Tem certeza que deseja excluir este Naver?
             </Modal>
 
+
+            <Modal
+                visible={modalDelete}
+                setVisible={setModalDelete}
+                buttons={false}
+            >
+                Naver excluído, naver excluído com sucesso!
+            </Modal>
+
             { newModalVisible && (
                  <ModalCard
                  visible={newModalVisible}
                  setVisible={setNewModalVisible}
-                 deleteNavers={deleteNavers}
                  id={idNewModal}
+                 handleModalVisible={handleModalVisible}
                 />
             )}
            

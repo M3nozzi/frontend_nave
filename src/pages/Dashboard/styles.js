@@ -2,6 +2,12 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 
+export const BtnContent = styled.div`
+    display:flex;
+    justify-content:flex-start;
+    
+`;
+
 export const Container = styled.section`
     display: flex;
     justify-content: space-between;
@@ -54,8 +60,9 @@ export const Navers = styled.div`
   left: 32px;
   top: 193px;
   border-radius: 0px;
+  box-sizing:border-box;
   
-    div{
+    div.CardContent {
       margin: 32px 32px;
       height: 420px;
       width: 281px;
@@ -72,6 +79,7 @@ export const Navers = styled.div`
       cursor: pointer;
       width: 100%;
       margin-bottom:16px;
+      object-fit:cover;
     }
 
 
@@ -108,10 +116,11 @@ export const Navers = styled.div`
     button {
       background-color:transparent;
       border:none;
-      display:block;
+      display:inline-block;
       align-items:left;
       margin-right:0;
       padding:0px 0px;
+      height:10px
     }
 
   

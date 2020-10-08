@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi';
+import SyncLoader from 'react-spinners/SyncLoader';
 
 import api from '../../services/api';
 
@@ -131,7 +132,7 @@ const NaversAdd = () => {
                   
                         <button type='submit'>
                             {
-                                loading ? "loading" : "Salvar"
+                                loading ? <SyncLoader size={5} margin={2}/> : 'Salvar'
                             }
                              
                         </button>

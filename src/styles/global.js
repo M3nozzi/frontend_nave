@@ -22,4 +22,17 @@ export default createGlobalStyle`
     button{
         cursor: pointer;
     }
+
+    @media only screen and (max-width: 500px){
+         #root{
+             padding: 30px 20px;
+         }
+    }
+
+    @media only screen and (min-width: 501px) and (max-width:800px){
+        #root {
+            padding: 30px 50px;
+        } 
+    }
+
 `;

@@ -108,6 +108,11 @@ export const FormNavers = styled.form`
         }
 
     }
+
+
+    @media only screen and (max-width: 500px ){
+        flex-direction:column;
+    }
 `;
 
 export const Group = styled.div`

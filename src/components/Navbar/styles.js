@@ -10,7 +10,6 @@ export const Nav = styled.header`
     justify-content: space-between;
     align-items: center;
 
-
     img {
         height: 43px;
         margin-left: 32px;
@@ -26,6 +25,17 @@ export const Nav = styled.header`
 
         &:hover{
             color:${shade(0.5, '#9E9E9E')}
+        }
+    }
+
+
+    @media only screen and (max-width: 500px){
+        img {
+            margin-left:10px;
+        }
+
+        button{
+            
         }
     }
 

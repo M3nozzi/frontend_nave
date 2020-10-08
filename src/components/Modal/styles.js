@@ -1,44 +1,16 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
 
-export const ModalBtn = styled.button`
-        width: 176px;
-        height:40px;
-        background:#212121;
-        color: #FFF;
-        transition: background-color 0.2s;
-        margin: 0px 32px 32px 135px;
-        &:hover{
-            background:#FFF;
-            color:#212121;
-
-        }
-`;
-
-
-export const ModalBtn2 = styled.button`
-        width: 176px;
-        height:40px;
-        background:#FFF;
-        color: #212121;
-        transition: background-color 0.2s;
-        margin: 0px 32px 32px 135px;
-        &:hover{
-            background:${shade(0.25, '#212121')};
-            color:#FFF;
-        }
-`;
-
 export const Mod = styled.div`
     position: fixed; 
     background: white; 
     width: 592px; 
     height:233px;
-    /* height: ${(props) => (props.button === true ? '233px' : '160px')};  */
     top: 50%; 
     left: 50%; 
+    z-index:1;
     transform: translate(-50%, -50%); 
-        div {
+        div.ModalText {
              margin: 0 auto; 
              width: 100%; 
              display: flex; 
@@ -59,6 +31,41 @@ export const Mod = styled.div`
 	            transform: scale(1.8);
                 }
             } 
+
+
+            div.MBtn{
+                display:flex;
+                justify-content:flex-end;
+
+            }
+`;
+
+export const ModalBtn = styled.button`
+        width: 176px;
+        height:40px;
+        background:#212121;
+        color: #FFF;
+        transition: background-color 0.2s;
+        margin: 0px 32px 32px 0px;
+        &:hover{
+            background:#FFF;
+            color:#212121;
+
+        }
+`;
+
+
+export const ModalBtn2 = styled.button`
+        width: 176px;
+        height:40px;
+        background:#FFF;
+        color: #212121;
+        transition: background-color 0.2s;
+        margin: 0px 26px 32px 0px;
+        &:hover{
+            background:${shade(0.25, '#212121')};
+            color:#FFF;
+        }
 `;
 
 export const ModalSubText = styled.p` 

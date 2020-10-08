@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi';
 
+import SyncLoader from 'react-spinners/SyncLoader';
+
 import Navbar from '../../components/Navbar/Navbar';
 import Modal from '../../components/Modal/Modal';
 
@@ -141,7 +143,7 @@ const NaversEdit = ({ match }) => {
                   
                         <button type='submit'>
                             {
-                                loading ? "loading" : "Salvar"
+                                loading ? <SyncLoader size={5} margin={2}/> : 'Salvar'
                             }
                              
                         </button>
