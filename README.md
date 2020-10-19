@@ -51,13 +51,7 @@ Exemplo do arquivo .env utilizado no projeto:
 REACT_APP_KEY=token
 ```
 
-## Dificuldades durante a execução do projeto
 
-Funcionalidade adequada do modal ao chamar outro modal para os casos de reuso, porém este desafio foi superado no decorrer do desenvolvimento do projeto.
-
-## Agradecimentos
-
-Agradeço a Nave.rs pela oportunidade em poder participar deste desafio, ao qual pude desenvolver melhor as minhas habilidades, resolvendo com êxito o desafio proposto.
 
 ## Autor
 
